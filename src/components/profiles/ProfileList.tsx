@@ -12,6 +12,7 @@ import { useOptimisticProfiles } from "@/app/(app)/profiles/useOptimisticProfile
 import { Button } from "@/components/ui/button";
 import ProfileForm from "./ProfileForm";
 import { PlusIcon } from "lucide-react";
+import { ProfileFilterList } from "./ProfileFilterList";
 
 type TOpenModal = (profile?: Profile) => void;
 
@@ -47,26 +48,18 @@ export default function ProfileList({
       </Modal>
       <div className="absolute right-0 top-0 flex space-x-2">
         <Link href={"/profiles/stats"} className="right-1">
-          <Button>
-            Estadística
+          <Button variant={"outline"}>
+            Estadísticas
           </Button>
         </Link>
-        <Button onClick={() => openModal()} variant={"outline"}>
+        <Button onClick={() => openModal()} >
           +
         </Button>
       </div>
       {optimisticProfiles.length === 0 ? (
         <EmptyState openModal={openModal} />
       ) : (
-        <ul>
-          {optimisticProfiles.map((profile) => (
-            <Profile
-              profile={profile}
-              key={profile.id}
-              openModal={openModal}
-            />
-          ))}
-        </ul>
+        <ProfileFilterList data={optimisticProfiles}/>
       )}
     </div>
   );
@@ -112,14 +105,11 @@ const EmptyState = ({ openModal }: { openModal: TOpenModal }) => {
   return (
     <div className="text-center">
       <h3 className="mt-2 text-sm font-semibold text-secondary-foreground">
-        No profiles
+        No hay perfiles
       </h3>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Get started by creating a new profile.
-      </p>
       <div className="mt-6">
         <Button onClick={() => openModal()}>
-          <PlusIcon className="h-4" /> New Profiles </Button>
+          <PlusIcon className="h-4" /> Nuevo Perfil </Button>
       </div>
     </div>
   );
