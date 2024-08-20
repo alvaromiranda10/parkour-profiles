@@ -1,8 +1,13 @@
+//NOT IMPLEMENTED
 "use client";
 
 import { signIn } from "next-auth/react";
+import { notFound } from "next/navigation";
 
 const Page = () => {
+
+  notFound();
+  
   return (
     <main className="bg-popover max-w-lg mx-auto my-4 rounded-lg p-10">
       <h1 className="text-2xl font-bold text-center">

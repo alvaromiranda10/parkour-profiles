@@ -3,7 +3,9 @@
  * @see https://v0.dev/t/PmwTvNfrVgf
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+"use client"
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function LandingPage() {
   return (
@@ -20,12 +22,12 @@ export default function LandingPage() {
           >
             Features
           </Link>
-          <Link
+          <button
+            onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
             className="text-sm font-medium hover:underline underline-offset-4"
-            href="/sign-in"
           >
             Sign In
-          </Link>
+          </button>
         </nav>
       </header>
       <main className="flex-1">
