@@ -41,10 +41,10 @@ export default function UpdateNameCard({ name }: { name: string }) {
     >
       <form onSubmit={handleSubmit}>
         <AccountCardBody>
-          <Input defaultValue={name ?? ""} name="name" disabled={true} />
+          <Input defaultValue={name ?? ""} name="name" disabled={false} />
         </AccountCardBody>
         <AccountCardFooter description="64 characters maximum">
-          <Button disabled={true}>Update Name</Button>
+          <Button disabled={false}>Update Name</Button>
         </AccountCardFooter>
       </form>
     </AccountCard>

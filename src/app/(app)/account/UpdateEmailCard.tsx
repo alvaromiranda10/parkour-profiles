@@ -43,7 +43,7 @@ export default function UpdateEmailCard({ email }: { email: string }) {
         <AccountCardBody>
           <Input defaultValue={email ?? ""} name="email" disabled={true} />
         </AccountCardBody>
-        <AccountCardFooter description="We will email vou to verify the change.">
+        <AccountCardFooter description="">
           <Button disabled={true}>Update Email</Button>
         </AccountCardFooter>
       </form>
