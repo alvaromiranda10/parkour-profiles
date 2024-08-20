@@ -17,14 +17,11 @@ type TOpenModal = (profile?: Profile) => void;
 
 export default function ProfileList({
   profiles,
-   
 }: {
   profiles: CompleteProfile[];
-   
 }) {
   const { optimisticProfiles, addOptimisticProfile } = useOptimisticProfiles(
     profiles,
-     
   );
   const [open, setOpen] = useState(false);
   const [activeProfile, setActiveProfile] = useState<Profile | null>(null);
@@ -46,10 +43,14 @@ export default function ProfileList({
           addOptimistic={addOptimisticProfile}
           openModal={openModal}
           closeModal={closeModal}
-          
         />
       </Modal>
-      <div className="absolute right-0 top-0 ">
+      <div className="absolute right-0 top-0 flex space-x-2">
+        <Link href={"/profiles/stats"} className="right-1">
+          <Button>
+            Estadística
+          </Button>
+        </Link>
         <Button onClick={() => openModal()} variant={"outline"}>
           +
         </Button>
@@ -99,7 +100,7 @@ const Profile = ({
         <div>{profile.name}</div>
       </div>
       <Button variant={"link"} asChild>
-        <Link href={ basePath + "/" + profile.id }>
+        <Link href={basePath + "/" + profile.id}>
           Edit
         </Link>
       </Button>
