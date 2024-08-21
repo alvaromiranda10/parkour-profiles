@@ -5,6 +5,9 @@ import { Adapter } from "next-auth/adapters";
 import { redirect } from "next/navigation";
 import { env } from "@/lib/env.mjs"
 import DiscordProvider from "next-auth/providers/discord";
+import EmailProvider from 'next-auth/providers/email';
+
+import { sendVerificationRequest } from "../email";
 
 declare module "next-auth" {
   interface Session {
@@ -36,6 +39,18 @@ export const authOptions: NextAuthOptions = {
      DiscordProvider({
       clientId: env.DISCORD_CLIENT_ID,
       clientSecret: env.DISCORD_CLIENT_SECRET,
+    }),
+    EmailProvider( {
+      server: {
+        host: env.EMAIL_SERVER_HOST,
+        port: env.EMAIL_SERVER_PORT,
+        auth: {
+          user: env.EMAIL_SERVER_USER,
+          pass: env.EMAIL_SERVER_PASSWORD,
+        },
+      },
+      from: env.EMAIL_FROM,
+      sendVerificationRequest
     })
   ],
 };
