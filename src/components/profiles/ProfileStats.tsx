@@ -36,6 +36,26 @@ export function ProfileStats({
 
 }) {
 
+    return (
+        <>
+            {profiles.length === 0 ? (
+                <EmptyState />
+            ) : (
+                <StatsSalary profiles={profiles} />
+            )}
+        </>
+    )
+}
+
+
+const StatsSalary = ({
+    profiles,
+
+}: {
+    profiles: CompleteProfile[];
+
+}) => {
+
     const totalSalary = profiles.reduce((sum, profile) => sum + profile.salary, 0);
     const averageSalary = totalSalary / profiles.length;
 
@@ -92,4 +112,15 @@ export function ProfileStats({
             </CardContent>
         </Card>
     )
+
 }
+
+const EmptyState = () => {
+    return (
+        <div className="text-center">
+            <h3 className="mt-2 text-sm font-semibold text-secondary-foreground">
+                No hay perfiles
+            </h3>
+        </div>
+    );
+};
