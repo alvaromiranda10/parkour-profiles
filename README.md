@@ -83,4 +83,4 @@ Esta aplicación web permite a los usuarios autenticarse, ingresar información 
 ## Siguientes pasos
 
 - **Internacionalización:** No se implementó por falta de tiempo(en particular por ser nuevo en las tecnologias implementadas). Pero ya estaba trabajando en utilizar la libreria `next-intl` pero me faltaba resolver los mensajes de error generados la libreria `zod`
-- **Dependencias:** Hubo un conflicto con Prisma y zod-prisma, resuelto temporalmente con el flag `--force` al realizar el `npm install ...`. Se recomienda revisar las dependencias para una solución a largo plazo.
+- ✅ ~~**Dependencias:** Hubo un conflicto con Prisma y zod-prisma, resuelto temporalmente con el flag `--force` al realizar el `npm install ...`. Se recomienda revisar las dependencias para una solución a largo plazo.~~
