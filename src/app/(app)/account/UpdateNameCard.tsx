@@ -15,7 +15,7 @@ export default function UpdateNameCard({ name }: { name: string }) {
     const form = new FormData(target);
     const { name } = Object.fromEntries(form.entries()) as { name: string };
     if (name.length < 3) {
-      toast.error("Name must be longer than 3 characters.");
+      toast.error("El nombre debe tener más de 3 caracteres.");
       return;
     }
 
@@ -26,7 +26,7 @@ export default function UpdateNameCard({ name }: { name: string }) {
         headers: { "Content-Type": "application/json" },
       });
       if (res.status === 200)
-        toast.success("Successfully updated name!");
+        toast.success("¡Nombre actualizado exitosamente!");
       router.refresh();
     });
   };
@@ -34,17 +34,17 @@ export default function UpdateNameCard({ name }: { name: string }) {
   return (
     <AccountCard
       params={{
-        header: "Your Name",
+        header: "Su Nombre",
         description:
-          "Please enter your full name, or a display name you are comfortable with.",
+          "Ingrese su nombre completo o un nombre para mostrar con el que se sienta cómodo.",
       }}
     >
       <form onSubmit={handleSubmit}>
         <AccountCardBody>
           <Input defaultValue={name ?? ""} name="name" disabled={false} />
         </AccountCardBody>
-        <AccountCardFooter description="64 characters maximum">
-          <Button disabled={false}>Update Name</Button>
+        <AccountCardFooter description="64 caracteres máximo">
+          <Button disabled={false}>Actualizar nombre</Button>
         </AccountCardFooter>
       </form>
     </AccountCard>

@@ -15,7 +15,7 @@ export default function UpdateEmailCard({ email }: { email: string }) {
     const form = new FormData(target);
     const { email } = Object.fromEntries(form.entries()) as { email: string };
     if (email.length < 3) {
-      toast.error("Email must be longer than 3 characters.");
+      toast.error("El correo electrónico debe tener más de 3 caracteres.");
       return;
     }
 
@@ -26,7 +26,7 @@ export default function UpdateEmailCard({ email }: { email: string }) {
         headers: { "Content-Type": "application/json" },
       });
       if (res.status === 200)
-        toast.success("Successfully updated email!");
+        toast.success("¡Correo electrónico actualizado exitosamente!");
       router.refresh();
     });
   };
@@ -34,9 +34,9 @@ export default function UpdateEmailCard({ email }: { email: string }) {
   return (
     <AccountCard
       params={{
-        header: "Your Email",
+        header: "Su correo electrónico",
         description:
-          "Please enter the email address you want to use with your account.",
+          "Ingrese la dirección de correo electrónico que desea utilizar con su cuenta.",
       }}
     >
       <form onSubmit={handleSubmit}>
@@ -44,7 +44,7 @@ export default function UpdateEmailCard({ email }: { email: string }) {
           <Input defaultValue={email ?? ""} name="email" disabled={true} />
         </AccountCardBody>
         <AccountCardFooter description="">
-          <Button disabled={true}>Update Email</Button>
+          <Button disabled={true}>Actualizar Email</Button>
         </AccountCardFooter>
       </form>
     </AccountCard>

@@ -2,8 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { notFound } from "next/navigation";
 
 export default function Page() {
+
+  notFound();
+
   const { setTheme } = useTheme();
   return (
     <div>

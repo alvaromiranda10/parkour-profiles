@@ -37,7 +37,7 @@ export default function ProfileList({
       <Modal
         open={open}
         setOpen={setOpen}
-        title={activeProfile ? "Edit Profile" : "Create Profile"}
+        title={activeProfile ? "Editar Profile" : "Crear Profile"}
       >
         <ProfileForm
           profile={activeProfile}

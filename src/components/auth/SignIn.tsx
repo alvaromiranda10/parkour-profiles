@@ -11,19 +11,19 @@ export default function SignIn() {
     return (
       <div className="space-y-3">
         <p>
-          Signed in as{" "}
+          Iniciado sesión como{" "}
           <span className="font-medium">{session.user?.email}</span>
         </p>
         <Button variant={"destructive"} onClick={() => signOut({ callbackUrl: "/" })}>
-          Sign out
+          Salir
         </Button>
       </div>
     );
   }
   return (
     <div className="space-y-3">
-      <p>Not signed in </p>
-      <Button onClick={() => signIn()}>Sign in</Button>
+      <p>No iniciado sesión </p>
+      <Button onClick={() => signIn()}>Iniciar sesión</Button>
     </div>
   );
 }

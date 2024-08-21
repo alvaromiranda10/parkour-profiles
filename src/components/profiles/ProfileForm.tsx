@@ -126,7 +126,7 @@ const ProfileForm = ({
             errors?.name ? "text-destructive" : "",
           )}
         >
-          Name
+          Nombre
         </Label>
         <Input
           type="text"
@@ -147,7 +147,7 @@ const ProfileForm = ({
             errors?.idCard ? "text-destructive" : "",
           )}
         >
-          Id Card
+          Documento
         </Label>
         <Input
           type="text"
@@ -168,7 +168,7 @@ const ProfileForm = ({
             errors?.phone ? "text-destructive" : "",
           )}
         >
-          Phone
+          Teléfono
         </Label>
         <Input
           type="text"
@@ -189,7 +189,7 @@ const ProfileForm = ({
             errors?.address ? "text-destructive" : "",
           )}
         >
-          Address
+          Dirección
         </Label>
         <Input
           type="text"
@@ -210,7 +210,7 @@ const ProfileForm = ({
             errors?.salary ? "text-destructive" : "",
           )}
         >
-          Salary
+          Salario
         </Label>
         <Input
           type="text"

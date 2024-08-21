@@ -41,7 +41,7 @@ export default function OptimisticProfile({
       <div className="flex justify-between items-end mb-4">
         <h1 className="font-semibold text-2xl">{optimisticProfile.name}</h1>
         <Button className="" onClick={() => setOpen(true)}>
-          Edit
+          Editar
         </Button>
       </div>
       <pre
