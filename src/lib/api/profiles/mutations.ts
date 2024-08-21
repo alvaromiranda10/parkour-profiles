@@ -27,7 +27,7 @@ export const updateProfile = async (id: ProfileId, profile: UpdateProfileParams)
   const { id: profileId } = profileIdSchema.parse({ id });
   const newProfile = updateProfileSchema.parse({ ...profile, userId: session?.user.id! });
   try {
-    const p = await db.profile.update({ where: { id: profileId, userId: session?.user.id! }, data: newProfile})
+    const p = await db.profile.updateMany({ where: { id: profileId, userId: session?.user.id! }, data: newProfile})
     return { profile: p };
   } catch (err) {
     const message = (err as Error).message ?? "Error, please try again";
@@ -40,7 +40,7 @@ export const deleteProfile = async (id: ProfileId) => {
   const { session } = await getUserAuth();
   const { id: profileId } = profileIdSchema.parse({ id });
   try {
-    const p = await db.profile.delete({ where: { id: profileId, userId: session?.user.id! }})
+    const p = await db.profile.deleteMany({ where: { id: profileId, userId: session?.user.id! }})
     return { profile: p };
   } catch (err) {
     const message = (err as Error).message ?? "Error, please try again";
