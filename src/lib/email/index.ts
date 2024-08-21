@@ -22,7 +22,7 @@ export const sendVerificationRequest = async (
     await transport.sendMail({
       to: identifier,
       from: provider.from,
-      subject: `Sign in to ${host}`,
+      subject: `Inicia sesión en ${host}`,
       html: render(ConfirmationEmail({url,host, theme} )) ,
     })
   } catch (error) {
