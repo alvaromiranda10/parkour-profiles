@@ -16,12 +16,13 @@ export default function LandingPage() {
           <span className="sr-only">Parkour Profiles</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <button
-            onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
-            className="text-sm font-medium hover:underline underline-offset-4"
+          <Link
+            href="/sign-in"
           >
-            Acceder
-          </button>
+            <button className="text-sm font-medium hover:underline underline-offset-4">
+              Acceder
+            </button>
+          </Link>
         </nav>
       </header>
       <main className="flex items-center justify-center min-h-screen">
@@ -34,12 +35,15 @@ export default function LandingPage() {
             Gestión rápida y clara de perfiles y sueldos para tu equipo de parkour
           </p>
           <div className="mt-6">
-            <button
-              onClick={() => signIn(undefined, { callbackUrl: "/dashboard" })}
-              className="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-8 text-sm font-medium text-neutral-50 shadow transition-colors hover:bg-neutral-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90 dark:focus-visible:ring-neutral-300"
+            <Link
+              href="/sign-in"
             >
-              Comenzar ahora
-            </button>
+              <button
+                className="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-8 text-sm font-medium text-neutral-50 shadow transition-colors hover:bg-neutral-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90 dark:focus-visible:ring-neutral-300"
+              >
+                Comenzar ahora
+              </button>
+            </Link>
           </div>
         </section>
       </main>

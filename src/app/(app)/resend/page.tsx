@@ -3,11 +3,15 @@ import Link from "next/link"
 import { emailSchema } from "@/lib/email/utils";
 import { useRef, useState } from "react";
 import { z } from "zod";
+import { notFound } from "next/navigation";
 
 type FormInput = z.infer<typeof emailSchema>;
 type Errors = { [K in keyof FormInput]: string[] };
 
 export default function Home() {
+  
+  notFound()
+  
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Errors | null>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
