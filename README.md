@@ -59,7 +59,7 @@ Esta aplicación web permite a los usuarios autenticarse, ingresar información 
 1. **Instalar Dependencias:**
 
     ```sh
-    npm install --force
+    npm install
     ```
 
 2. **Configurar Variables de Entorno:**
