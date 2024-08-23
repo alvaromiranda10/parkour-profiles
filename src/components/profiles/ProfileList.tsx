@@ -59,11 +59,35 @@ export default function ProfileList({
       {optimisticProfiles.length === 0 ? (
         <EmptyState openModal={openModal} />
       ) : (
-        <ProfileFilterList data={profiles}/>
+        <ProfileFilterList data={optimisticProfiles} />
       )}
     </div>
   );
 }
+
+export const CustomButtonProfile = ({
+  profile,
+}: {
+  profile: CompleteProfile;
+}) => {
+  const optimistic = profile.id === "optimistic";
+  const deleting = profile.id === "delete";
+  const mutating = optimistic || deleting;
+
+
+  return (
+    <Button variant={"link"}
+      className={cn(
+        mutating ? "opacity-30 animate-pulse" : "",
+        deleting ? "text-destructive" : "",
+      )}
+      asChild>
+      <Link href={"/profiles/" + profile.id}>
+        Edit
+      </Link>
+    </Button>
+  );
+};
 
 const Profile = ({
   profile,

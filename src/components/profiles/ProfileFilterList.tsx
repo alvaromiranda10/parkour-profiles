@@ -28,6 +28,7 @@ import {
 
 import { type Profile, CompleteProfile } from "@/lib/db/schema/profiles";
 import Link from "next/link"
+import { CustomButtonProfile } from "./ProfileList"
 
 
 export const columns: ColumnDef<Profile>[] = [
@@ -104,11 +105,7 @@ export const columns: ColumnDef<Profile>[] = [
         cell: ({ row }) => {
             const profile = row.original
             return (
-                <Button variant={"link"} asChild>
-                    <Link href={"/profiles/" + profile.id}>
-                        Editar
-                    </Link>
-                </Button>
+                <CustomButtonProfile profile={profile}/>
             )
         },
     },
