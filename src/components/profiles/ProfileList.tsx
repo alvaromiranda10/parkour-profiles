@@ -59,7 +59,7 @@ export default function ProfileList({
       {optimisticProfiles.length === 0 ? (
         <EmptyState openModal={openModal} />
       ) : (
-        <ProfileFilterList data={optimisticProfiles}/>
+        <ProfileFilterList data={profiles}/>
       )}
     </div>
   );
