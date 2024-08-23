@@ -24,7 +24,7 @@ export const ConfirmationEmail = ({ url, host, theme }: { url: string; host: str
           <Heading style={heading}>🪄 Tu enlace mágico</Heading>
           <Section style={body}>
             <Text style={paragraph}>
-              <Link style={link} href={host}>
+              <Link style={link} href={url}>
                 👉 ¡Haz clic aquí para iniciar sesión! 👈
               </Link>
             </Text>
