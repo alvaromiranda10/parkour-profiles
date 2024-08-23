@@ -81,7 +81,7 @@ export const CustomButtonProfile = ({
         mutating ? "opacity-30 animate-pulse" : "",
         deleting ? "text-destructive" : "",
       )}
-      disabled={mutating ? false : true}
+      disabled={mutating ? true : false}
       asChild>
       <Link href={"/profiles/" + profile.id}>
         Edit
