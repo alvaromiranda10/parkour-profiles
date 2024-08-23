@@ -76,15 +76,18 @@ export const CustomButtonProfile = ({
 
 
   return (
-    <Button variant={"link"}
+    <Button
+      variant={"link"}
       className={cn(
         mutating ? "opacity-30 animate-pulse" : "",
         deleting ? "text-destructive" : "",
       )}
-      disabled={mutating ? true : false}
-      asChild>
-      <Link href={"/profiles/" + profile.id}>
-        Edit
+      asChild
+    >
+      <Link
+        href={mutating ? "#" : "/profiles/" + profile.id}
+      >
+        Editar
       </Link>
     </Button>
   );
