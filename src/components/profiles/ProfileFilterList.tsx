@@ -27,7 +27,6 @@ import {
 } from "@/components/ui/table"
 
 import { type Profile, CompleteProfile } from "@/lib/db/schema/profiles";
-import Link from "next/link"
 import { CustomButtonProfile } from "./ProfileList"
 
 
@@ -121,6 +120,7 @@ export function ProfileFilterList({
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
+    const [globalFilter, setGlobalFilter] = React.useState('');
 
     const table = useReactTable({
         data,
@@ -136,18 +136,18 @@ export function ProfileFilterList({
             sorting,
             columnFilters,
             columnVisibility,
+            globalFilter:globalFilter
         },
+        onGlobalFilterChange:setGlobalFilter
     })
 
     return (
         <div className="w-full">
             <div className="flex items-center py-4">
                 <Input
-                    placeholder="Escribe un nombre para buscar..."
-                    value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) =>
-                        table.getColumn("name")?.setFilterValue(event.target.value)
-                    }
+                    placeholder="Introduce términos de búsqueda...."
+                    value={globalFilter}
+                    onChange={(e) => setGlobalFilter(e.target.value)}
                     className="max-w-sm"
                 />
             </div>
