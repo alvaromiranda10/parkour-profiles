@@ -61,6 +61,7 @@ export const columns: ColumnDef<Profile>[] = [
         cell: ({ row }) => (
             <div className="capitalize">{row.getValue("phone")}</div>
         ),
+        enableGlobalFilter:false
     },
     {
         accessorKey: "email",
@@ -73,6 +74,7 @@ export const columns: ColumnDef<Profile>[] = [
         cell: ({ row }) => (
             <div className="capitalize">{row.getValue("address")}</div>
         ),
+        enableGlobalFilter:false
     },
     {
         accessorKey: "salary",
@@ -87,7 +89,7 @@ export const columns: ColumnDef<Profile>[] = [
                 </Button>
             )
         },
-
+        enableGlobalFilter:false,
         cell: ({ row }) => {
             const amount = parseFloat(row.getValue("salary"))
             const formatted = new Intl.NumberFormat("en-US", {
@@ -145,7 +147,7 @@ export function ProfileFilterList({
         <div className="w-full">
             <div className="flex items-center py-4">
                 <Input
-                    placeholder="Introduce términos de búsqueda...."
+                    placeholder="Escribe un nombre, email o documento para buscar..."
                     value={globalFilter}
                     onChange={(e) => setGlobalFilter(e.target.value)}
                     className="max-w-sm"
